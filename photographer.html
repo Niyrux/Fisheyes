@@ -1,42 +1,96 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="./index.html">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
-      </a>
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-        <section id="photographer-details">
-      </section>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="./index.html">
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+    </a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <div id="info-photographer"></div>
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <div id="img-photographer"></div>
+    </div>
+   <div id="filter">
+  <label for="sort" id="sortLabel">Trier par :</label>
+  
+  <div class="custom-select">
+    <button 
+      class="select-button" 
+      id="selectBtn"
+      role="button"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-labelledby="sortLabel selectBtn">
+      Popularité
+    </button>
+    <ul 
+      class="options-menu" 
+      id="optionsMenu"
+      role="listbox"
+      aria-labelledby="sortLabel"
+      aria-activedescendant="option-popularity">
+      <li class="option selected" role="option" id="option-popularity" data-value="popularity" aria-selected="true">Popularité</li>
+      <li class="option" role="option" id="option-date" data-value="date" aria-selected="false">Date</li>
+      <li class="option" role="option" id="option-title" data-value="title" aria-selected="false">Titre</li>
+    </ul>
+  </div>
+
+  <select id="sort">
+    <option value="popularity">Popularité</option>
+    <option value="date">Date</option>
+    <option value="title">Titre</option>
+  </select>
+</div>
+
+    <section id="photographer-details">
+    </section>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <div class="name-header">
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-        
-			</div>
-		</div>
-    <script  src="../Front-End-Fisheye/scripts/pages/photographer.js"></script>
-    <script src="../Front-End-Fisheye/scripts/utils/contactForm.js"></script>
-  </body>
+        </div>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form id="form">
+        <div>
+          <label for="first-name">Prénom</label>
+          <input type="text" id="first-name" name="first_name" required aria-label="Prénom" />
+
+          <label for="last-name">Nom</label>
+          <input type="text" id="last-name" name="last_name" required aria-label="Nom" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required aria-label="Email" />
+
+          <label for="message">Votre message</label>
+          <input type="text" id="message" name="message" required aria-label="Votre message" />
+        </div>
+
+        <button id='submit' class="contact_button">
+          Envoyer
+        </button>
+      </form>
+
+
+    </div>
+
+  </div>
+ 
+  <script src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/utils/contactForm.js"></script>
+</body>
+
 </html>
